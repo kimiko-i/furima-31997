@@ -17,7 +17,6 @@
 
 - has_many :items
 - has_many :purchases
-- has_one :profile
 
 ## items テーブル
 
@@ -25,7 +24,7 @@
 |:--------------:|:----------:|:-----------------:|
 | item_name      | string     | null: false       |
 | price          | string     | null: false       |
-| user_id        | references | foreign_key: true |
+| user           | references | foreign_key: true |
 | category       | integer    | null: false       |
 | status         | integer    | null: false       |
 | shipping       | integer    | null: false       |
@@ -46,19 +45,19 @@
 | house_number  | integer    | null: false       |
 | building_name | string     |                   |
 | tel           | string     | null: false       |
-| user_id       | references | foreign_key: true |
+| user          | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :user
 - belongs_to :purchase
 
 ## purchase テーブル
 
-| Column  | Type       | Options           |
-|:-------:|:----------:|:-----------------:|
-| user_id | references | foreign_key: true |
-| items_id| references | foreign_key: true |
+| Column       | Type       | Options           |
+|:------------:|:----------:|:-----------------:|
+| user         | references | foreign_key: true |
+| items        | references | foreign_key: true |
+| purchased_at | date       | null: false       |
 
 ### Association
 
