@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column          | Type    | Options     |
-|:---------------:|:-------:|:-----------:|
-| first_name      | string  | null: false |
-| last_name       | string  | null: false |
-| first_name_kana | string  | null: false |
-| last_name_kana  | string  | null: false |
-| nickname        | string  | null: false |
-| email           | string  | null: false |
-| password        | string  | null: false |
-| birthday        | date    | null: false |
+| Column          | Type               | Options     |
+|:---------------:|:------------------:|:-----------:|
+| first_name      | string             | null: false |
+| last_name       | string             | null: false |
+| first_name_kana | string             | null: false |
+| last_name_kana  | string             | null: false |
+| nickname        | string             | null: false |
+| email           | string             | null: false |
+| password        | encrypted_password | null: false |
+| birthday        | date               | null: false |
 
 ### Association
 
@@ -25,12 +25,11 @@
 |:--------------:|:----------:|:-----------------:|
 | item_name      | string     | null: false       |
 | price          | string     | null: false       |
-| seller_user_id | references | foreign_key: true |
+| user_id        | references | foreign_key: true |
 | category       | integer    | null: false       |
 | status         | integer    | null: false       |
 | shipping       | integer    | null: false       |
 | shipment_day   | integer    | null: false       |
-| user_id        | references | foreign:key       |
 
 ### Association
 
@@ -56,10 +55,10 @@
 
 ## purchase テーブル
 
-| Column            | Type       | Options           |
-|:-----------------:|:----------:|:-----------------:|
-| purchased_user_id | references | foreign_key: true |
-| items_id          | references | foreign_key: true |
+| Column  | Type       | Options           |
+|:-------:|:----------:|:-----------------:|
+| user_id | references | foreign_key: true |
+| items_id| references | foreign_key: true |
 
 ### Association
 
