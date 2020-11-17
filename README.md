@@ -11,9 +11,7 @@
 | nickname        | string  | null: false |
 | email           | string  | null: false |
 | password        | string  | null: false |
-| birthday_year   | integer | null: false |
-| birthday_month  | integer | null: false |
-| birthday_day    | integer | null: false |
+| birthday        | date    | null: false |
 
 ### Association
 
@@ -32,6 +30,7 @@
 | status         | integer    | null: false       |
 | shipping       | integer    | null: false       |
 | shipment_day   | integer    | null: false       |
+| user_id        | references | foreign:key       |
 
 ### Association
 
@@ -42,12 +41,12 @@
 
 | Column        | Type       | Option            |
 |:-------------:|:----------:|:-----------------:|
-| postal_code   | integer    | null: false       |
+| postal_code   | string     | null: false       |
 | prefecture    | integer    | null: false       |
 | city          | string     | null: false       |
 | house_number  | integer    | null: false       |
 | building_name | string     |                   |
-| tel           | integer    | null: false       |
+| tel           | string     | null: false       |
 | user_id       | references | foreign_key: true |
 
 ### Association
@@ -61,11 +60,9 @@
 |:-----------------:|:----------:|:-----------------:|
 | purchased_user_id | references | foreign_key: true |
 | items_id          | references | foreign_key: true |
-| purchased_day     | integer    | null: false       |
-| profile_id        | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :profile
+- has_one :profile
