@@ -24,6 +24,7 @@
 |:--------------:|:----------:|:-----------------:|
 | item_name      | string     | null: false       |
 | price          | string     | null: false       |
+| detail         | text       | null: false       |
 | user           | references | foreign_key: true |
 | category       | integer    | null: false       |
 | status         | integer    | null: false       |
@@ -42,10 +43,10 @@
 | postal_code   | string     | null: false       |
 | prefecture    | integer    | null: false       |
 | city          | string     | null: false       |
-| house_number  | integer    | null: false       |
+| house_number  | string     | null: false       |
 | building_name | string     |                   |
 | tel           | string     | null: false       |
-| user          | references | foreign_key: true |
+| purchase      | references | foreign_key: true |
 
 ### Association
 
@@ -57,7 +58,6 @@
 |:------------:|:----------:|:-----------------:|
 | user         | references | foreign_key: true |
 | items        | references | foreign_key: true |
-| purchased_at | date       | null: false       |
 
 ### Association
 
