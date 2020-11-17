@@ -26,10 +26,11 @@
 | price          | string     | null: false       |
 | detail         | text       | null: false       |
 | user           | references | foreign_key: true |
-| category       | integer    | null: false       |
-| status         | integer    | null: false       |
-| shipping       | integer    | null: false       |
-| shipment_day   | integer    | null: false       |
+| category_id    | integer    | null: false       |
+| status_id      | integer    | null: false       |
+| shipping_id    | integer    | null: false       |
+| shipment_day_id| integer    | null: false       |
+| send_from_id   | integer    | null: false
 
 ### Association
 
@@ -57,7 +58,7 @@
 | Column       | Type       | Options           |
 |:------------:|:----------:|:-----------------:|
 | user         | references | foreign_key: true |
-| items        | references | foreign_key: true |
+| item         | references | foreign_key: true |
 
 ### Association
 
