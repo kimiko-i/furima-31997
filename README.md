@@ -1,24 +1,71 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column          | Type    | Options     |
+|:---------------:|:-------:|:-----------:|
+| first_name      | string  | null: false |
+| last_name       | string  | null: false |
+| first_name_kana | string  | null: false |
+| last_name_kana  | string  | null: false |
+| nickname        | string  | null: false |
+| email           | string  | null: false |
+| password        | string  | null: false |
+| birthday_year   | integer | null: false |
+| birthday_month  | integer | null: false |
+| birthday_day    | integer | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :purchases
+- has_one :profile
 
-* Configuration
+## items テーブル
 
-* Database creation
+| Column         | Type       | Options           |
+|:--------------:|:----------:|:-----------------:|
+| item_name      | string     | null: false       |
+| price          | string     | null: false       |
+| seller_user_id | references | foreign_key: true |
+| category       | integer    | null: false       |
+| status         | integer    | null: false       |
+| shipping       | integer    | null: false       |
+| shipment_day   | integer    | null: false       |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_one :purchase
 
-* Services (job queues, cache servers, search engines, etc.)
+## profiles テーブル
 
-* Deployment instructions
+| Column        | Type       | Option            |
+|:-------------:|:----------:|:-----------------:|
+| postal_code   | integer    | null: false       |
+| prefecture    | integer    | null: false       |
+| city          | string     | null: false       |
+| house_number  | integer    | null: false       |
+| building_name | string     |                   |
+| tel           | integer    | null: false       |
+| user_id       | references | foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :user
+- belongs_to :purchase
+
+## purchase テーブル
+
+| Column            | Type       | Options           |
+|:-----------------:|:----------:|:-----------------:|
+| purchased_user_id | references | foreign_key: true |
+| items_id          | references | foreign_key: true |
+| purchased_day     | integer    | null: false       |
+| profile_id        | references | foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- belongs_to :profile
