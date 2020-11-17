@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column          | Type               | Options     |
-|:---------------:|:------------------:|:-----------:|
-| first_name      | string             | null: false |
-| last_name       | string             | null: false |
-| first_name_kana | string             | null: false |
-| last_name_kana  | string             | null: false |
-| nickname        | string             | null: false |
-| email           | string             | null: false |
-| password        | encrypted_password | null: false |
-| birthday        | date               | null: false |
+| Column            | Type     | Options     |
+|:-----------------:|:--------:|:-----------:|
+| first_name        | string   | null: false |
+| last_name         | string   | null: false |
+| first_name_kana   | string   | null: false |
+| last_name_kana    | string   | null: false |
+| nickname          | string   | null: false |
+| email             | string   | null: false |
+| encrypted_password| string   | null: false |
+| birthday          | date     | null: false |
 
 ### Association
 
@@ -22,7 +22,7 @@
 
 | Column         | Type       | Options           |
 |:--------------:|:----------:|:-----------------:|
-| item_name      | string     | null: false       |
+| name           | string     | null: false       |
 | price          | string     | null: false       |
 | detail         | text       | null: false       |
 | user           | references | foreign_key: true |
@@ -42,7 +42,7 @@
 | Column        | Type       | Option            |
 |:-------------:|:----------:|:-----------------:|
 | postal_code   | string     | null: false       |
-| prefecture    | integer    | null: false       |
+| prefecture_id | integer    | null: false       |
 | city          | string     | null: false       |
 | house_number  | string     | null: false       |
 | building_name | string     |                   |
