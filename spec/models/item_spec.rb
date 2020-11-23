@@ -52,8 +52,18 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Category Select')
       end
+      it 'カテゴリーが空では保存できない' do
+        @item.category_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Category Select')
+      end
       it '商品の状態が選択されていないと保存できない' do
         @item.status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Status Select')
+      end
+      it '商品の状態が空では保存できない' do
+        @item.status_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include('Status Select')
       end
@@ -62,13 +72,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping fee status Select')
       end
+      it '配送料の負担が空では保存できない' do
+        @item.shipping_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Shipping fee status Select')
+      end
       it '配送元の地域が選択されていないと保存できない' do
         @item.send_from_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Send from prefecture Select')
       end
+      it '配送元の地域が空では保存できない' do
+        @item.send_from_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Send from prefecture Select')
+      end
       it '発送までの日数が選択されていないと保存できない' do
         @item.shipment_day_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Shipment day Select')
+      end
+      it '発送までの日数が空では保存できない' do
+        @item.shipment_day_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipment day Select')
       end
