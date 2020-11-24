@@ -17,10 +17,9 @@ class Item < ApplicationRecord
     validates :send_from_id,     format: { with: /[2-9]|[1-4][0-8]/, message: 'prefecture Select' }
     validates :name
     validates :price
-    validates_inclusion_of :price, in:300..9999999,  message: 'Out of setting range'
+    validates_inclusion_of :price, in: 300..9_999_999, message: 'Out of setting range'
     validates :detail
     validates :image, presence: { message: "can't be blank" }
   end
   validates :price, numericality: { with: /\A[0-9]+\z/, message: 'Half-width number' }
-
 end
