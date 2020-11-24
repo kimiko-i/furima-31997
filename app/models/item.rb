@@ -22,4 +22,5 @@ class Item < ApplicationRecord
     validates :image, presence: { message: "can't be blank" }
   end
   validates :price, numericality: { with: /\A[0-9]+\z/, message: 'Half-width number' }
+
 end
