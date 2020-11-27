@@ -24,7 +24,7 @@
     </div>
 
 
-    <% unless Order.find_by(item_id: @item.id) %>
+    <% unless @item.order.present? %>
     <% if user_signed_in? && current_user.id == @item.user_id %>
     <%= link_to '商品の編集', edit_item_path(@item), method: :get, class: "item-red-btn" %>
     <p class='or-text'>or</p>
