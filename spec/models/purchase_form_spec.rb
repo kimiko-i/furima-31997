@@ -63,12 +63,14 @@ RSpec.describe PurchaseForm, type: :model do
         expect(@purchase_form.errors.full_messages).to include("Tel Input only number")
       end 
       it 'user_idがないと保存できないこと' do
-        user_id = nil
+        @purchase_form.user_id = nil
         @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("User can't be blank")
       end
       it 'item_idがないと保存できないこと' do
-        item_id = nil
+        @purchase_form.item_id = nil
         @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("Item can't be blank")
       end    
     end  
   end
