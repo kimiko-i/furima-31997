@@ -7,5 +7,7 @@ FactoryBot.define do
     house_number   { Gimei.address.town.kanji }
     building_name  { Faker::Address.secondary_address }
     tel            { "09012345678" }
+    user_id        { Faker::Number }
+    item_id        { Faker::Number }
   end
 end

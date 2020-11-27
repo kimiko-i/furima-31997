@@ -10,6 +10,8 @@ class PurchaseForm
     validates :city 
     validates :house_number
     validates :tel,           format: { with: /\A[0-9]{,11}\z/, message: "Input only number"}
+    validates :user_id
+    validates :item_id
   end
 
   def save
