@@ -10,7 +10,6 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :order
   # has_one :address
-  
 
   with_options presence: true do
     validates :category_id, format: { with: /[2-9]|1[0-1]/, message: 'Select' }
