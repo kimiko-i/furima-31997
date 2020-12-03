@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    redirect_to root_path if @item.order.present?
+    redirect_to root_path if @item.order.present? || @item.user_id == current_user.id
     @purchase_form = PurchaseForm.new
   end
 
